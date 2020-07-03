@@ -18,14 +18,18 @@
 <h4>Some Options</h4>
 <h5>Click on a pun for more information and to rate</h5>
 <a href="/add">ADD 12 </a>Hardcoded puns<br>
-<a href="/remove">REMOVE ALL</a><br>
+<!-- <a href="/remove">REMOVE ALL</a><br> -->
 <a href="/sort/phrase">SORT </a> by rating <br>
 <form method="post" action="/find/keyword">
 	<label for="keyword">List the puns with this keyword:</label>
 	<input type="text" name="keyword" value="">
 	<input type="submit" value="Submit">
-                </form>
+    </form>
+    <form action="/generate" method="get">
+    <button type="submit" class="btn btn-secondary m-3">Generate Pun!</button>
+    </form>
 	{% endblock %}
+
 	{% block title2 %}Add a pun to the database {% endblock %}
 	{% block content %}
 	<form method="post" action="/pun/new">

@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+{% block title %}Generate{% endblock %}
+{% block listcontent %}
+<h4>What word do you want to pun?</h4>
+	<form method="post" action="/pun/word">
+		<label for="expression">Expression:</label>
+		<input type="text" name="expression" value=""size="50"><br>
+		<input type="submit" value="Submit">
+    </form>
+<p>Display Here</p>
+ 
+
+{% endblock %}
+
+{% block options %}
+<h4>Some Options</h4>
+    <button type="button" class="btn btn-secondary m-3" action="/generate">Generate Pun!</button>
+	{% endblock %}
+
+	{% block title2 %}Add your new pun to the database {% endblock %}
+	{% block content %}
+	<form method="post" action="/pun/new">
+		<label for="phrase">The Pun:</label>
+		<input type="text" name="phrase" value=""size="100"><br>
+		<label for="key1">First Keyword:</label>
+		<input type="text" name="key1" value="">
+		<label for="key2">Second Keyword:</label>
+		<input type="text" name="key2" value="">
+		<input type="submit" value="Submit">
+            </form>
+		{% endblock %}
+        {% block logout %}<a href='/logout'>Logout</a>{% endblock %}

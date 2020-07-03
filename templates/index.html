@@ -1,11 +1,11 @@
 {% extends "template.html" %}
 {% block title %}Pun Index{% endblock %}
 {% block listcontent %}
-<h4>Current Database</h4>
+<h4>First 10 Puns</h4>
 <!-- Database entries -->
 <ul>
-	{% for record in records %}
-	<li>{{ record.phrase }}</li>
+	{% for i in range(10) %}
+	<li>{{ records[i].phrase }}</li>
 	{% endfor %}
 </ul>
 {% endblock %}
@@ -13,9 +13,9 @@
 <h4>Some Options</h4>
 <h5>Click on pun for more information</h5>
 <p>ADD 12 Hardcoded puns</p>
-<p>REMOVE ALL</p>
+<!-- <p>REMOVE ALL</p> -->
 <p>SORT </a>by user rating</p>
-<p>List the puns by user</p>
+<p>List puns by keyword</p>
 	{% endblock %}
 	{% block title2 %}Want to edit the database? <a href="/gologin">Login</a> {% endblock %}
 	{% block content %}

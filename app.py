@@ -191,3 +191,8 @@ def listings(name):
     pun_documents = pun_collection.find({'lister' : name})
     return render_template('listings.html', puns = pun_documents, lister = name)
 
+# GO TO GENERATE
+@app.route('/generate')
+def go_generate():
+    print("Calling generate")
+    return render_template('generate.html')
