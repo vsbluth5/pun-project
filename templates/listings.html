@@ -1,0 +1,19 @@
+cl{% extends "template.html" %}
+{% block title1 %}Puns posted or updated by {{lister}}{% endblock %}
+
+{% block listcontent %}
+    <h4>Puns</h4>
+        <ul>
+          {% for entry in puns %}
+            <li>{{ entry.phrase }}</li>
+          {% endfor %}
+      </ul>
+{% endblock %}
+
+{% block options %}
+{% endblock %}
+
+ {% block content %}
+    <h4><a href='/mainpage'>Go Back</a></h4>
+    {% endblock %}
+{% block logout %}<a href='/logout'>Logout</a>{% endblock %}

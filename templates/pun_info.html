@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block title1 %}{% endblock %}
+
+{% block listcontent %}
+    <h4>Pun Information</h4>
+    {% for key, value in pun.items() %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+{% block options %}
+    <h4>Make Changes</h4>
+    <!-- Submission Form -->
+	<form method="post" action="/update/{{ pun._id  }}">
+		<p><label for="updates">Change wording:</label>
+		<input type="text" name="phrase" value="{{pun.phrase}}"></p>
+		<p><label for="updates">Change Keyword 1:</label>
+		<input type="text" name="key1" value="{{pun.keyword1}}"></p>
+		<p><label for="updates">Change Keyword 2:</label>
+		<input type="text" name="key2" value="{{pun.keyword2}}"></p>
+        <p><label for="updates">Change Rating:</label>
+		<input type="number" name="rating" value="{{pun.rating}}"></p>
+		<input type="submit" value="Submit">
+    </form>
+{% endblock %}
+ {% block content %}
+    <h4><a href='/remove/{{ pun._id  }}'>REMOVE PUN</a></h4>
+    <h4><a href='/mainpage'>Go Back</a></h4>
+    {% endblock %}
+
+{% block logout %}<a href='/logout'>Logout</a>{% endblock %}

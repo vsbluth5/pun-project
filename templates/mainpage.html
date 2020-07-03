@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+{% block title %}Pun DB{% endblock %}
+{% block listcontent %}
+<h4>First 10 Puns</h4>
+<!-- Database entries -->
+<ul>
+	{% for i in range(10) %}
+	<li><a href="/find/{{ records[i]._id }}">{{ records[i].phrase }}</a> 
+        {% if records[i].lister %}
+        (Rated {{records[i].rating}} by <a href="/profile/{{ records[i].lister }}">{{ records[i].lister }})</a>
+        {% endif %}
+        </li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+{% block options %}
+<h4>Some Options</h4>
+<h5>Click on a pun for more information and to rate</h5>
+<a href="/add">ADD 12 </a>Hardcoded puns<br>
+<a href="/remove">REMOVE ALL</a><br>
+<a href="/sort/phrase">SORT </a> by rating <br>
+<form method="post" action="/find/keyword">
+	<label for="keyword">List the puns with this keyword:</label>
+	<input type="text" name="keyword" value="">
+	<input type="submit" value="Submit">
+                </form>
+	{% endblock %}
+	{% block title2 %}Add a pun to the database {% endblock %}
+	{% block content %}
+	<form method="post" action="/pun/new">
+		<label for="phrase">The Pun:</label>
+		<input type="text" name="phrase" value=""size="100"><br>
+		<label for="key1">First Keyword:</label>
+		<input type="text" name="key1" value="">
+		<label for="key2">Second Keyword:</label>
+		<input type="text" name="key2" value="">
+		<input type="submit" value="Submit">
+            </form>
+		{% endblock %}
+        {% block logout %}<a href='/logout'>Logout</a>{% endblock %}
