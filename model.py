@@ -1,6 +1,6 @@
 import requests
 import random
-from similar_text import similar_text
+# from similar_text import similar_text
 from datamuse import datamuse
 api = datamuse.Datamuse()
 
@@ -21,6 +21,6 @@ def make_pun (word):
         spell_words.append(item["word"])
 
     return{"word": word, "synonyms": syn_words, "spellings": spell_words, "homonyms": hom_words}
-word = input("What word would you like to pun off of?")
+# word = input("What word would you like to pun off of?")
 
-print(make_pun(word))
+#print(make_pun(word))##

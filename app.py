@@ -8,6 +8,8 @@ from flask_pymongo import PyMongo
 
 from bson.objectid import ObjectId
 
+import model
+
 # -- Initialization section --
 app = Flask(__name__)
 
@@ -191,8 +193,17 @@ def listings(name):
     pun_documents = pun_collection.find({'lister' : name})
     return render_template('listings.html', puns = pun_documents, lister = name)
 
-# GO TO GENERATE
+# GO TO GENERAT
 @app.route('/generate')
 def go_generate():
     print("Calling generate")
-    return render_template('generate.html')
+    return render_template('generate.html', records = {})
+
+# USE DATAMUSE
+@app.route("/pun/word", methods = ['GET', 'POST'])
+def get_words():
+    if request.method=='POST':
+         props = model.make_pun(request.form['expression'])
+         return render_template('generate.html', records = props)
+    else:
+        return "POST a word"

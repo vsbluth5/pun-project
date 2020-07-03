@@ -4,10 +4,17 @@
 <h4>What word do you want to pun?</h4>
 	<form method="post" action="/pun/word">
 		<label for="expression">Expression:</label>
-		<input type="text" name="expression" value=""size="50"><br>
+		<input type="text" name="expression" value=""size="30"><br>
 		<input type="submit" value="Submit">
     </form>
-<p>Display Here</p>
+<h5>Display Here</h5>
+
+    <ul>
+   {% for key, value in records.items() %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+    </ul>
+\\
  
 
 {% endblock %}
