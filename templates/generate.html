@@ -3,19 +3,18 @@
 {% block listcontent %}
 <h4>What word do you want to pun?</h4>
 	<form method="post" action="/pun/word">
-		<label for="expression">Expression:</label>
+		<label for="expression">Word:</label>
 		<input type="text" name="expression" value=""size="30"><br>
 		<input type="submit" value="Submit">
     </form>
-<h5>Display Here</h5>
+<h5>Building Blocks</h5>
 
     <ul>
    {% for key, value in records.items() %}
         <li>{{ key }}: {{ value }}</li>
     {% endfor %}
     </ul>
-\\
- 
+ <h5>To make puns: write a sentence that stitches together a homophone and a synonymn!</h5>
 
 {% endblock %}
 
@@ -35,5 +34,6 @@
 		<input type="text" name="key2" value="">
 		<input type="submit" value="Submit">
             </form>
+        <h4><a href='/mainpage'>Go Back</a></h4>
 		{% endblock %}
         {% block logout %}<a href='/logout'>Logout</a>{% endblock %}
