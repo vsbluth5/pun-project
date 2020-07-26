@@ -14,15 +14,15 @@ import model
 app = Flask(__name__)
 
 # name of database
-app.config['MONGO_DBNAME'] = 'punDB' 
+app.config['MONGO_DBNAME'] = os.getenv("DATABASE") 
 
 # URI of database for read/write provileges
-app.config['MONGO_URI'] = 'mongodb+srv://person1:pVoEoiSZnPw0omb8@cluster0-vmzkd.mongodb.net/punDB?retryWrites=true&w=majority'
+app.config['MONGO_URI'] = os.getenv("MONGO_URI")
 
 
 # This is for the session
 #  If using Python 3, use a string
-app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = os.getenv('SESSION')
 
 mongo = PyMongo(app)
 
