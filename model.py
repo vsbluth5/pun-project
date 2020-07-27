@@ -1,6 +1,4 @@
-import requests
 import random
-# from similar_text import similar_text
 from datamuse import datamuse
 api = datamuse.Datamuse()
 
